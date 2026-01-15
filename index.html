@@ -21,18 +21,30 @@
             <label for="inventorySales">Total Inventory Sales:</label>
             <input type="number" id="inventorySales" placeholder="Enter total inventory sales">
         </div>
+        <!-- NEW INPUT FIELD -->
+        <div class="input-group">
+            <label for="capitalSalesLastYear">Capital Sales Last Year:</label>
+            <input type="number" id="capitalSalesLastYear" placeholder="Enter capital sales from last year">
+        </div>
+        <!------------------->
+
         <button id="calculateBtn">Calculate</button>
         
         <div class="results">
             <h3>Results:</h3>
-            <p><strong>Total Sum:</strong> <span id="totalSum">0.00</span></p>
-            <p><strong>40% Tangkilik:</strong> <span id="tangkilik">0.00</span></p>
-            <p><strong>40% Puhunan:</strong> <span id="puhunan">0.00</span></p>
-            <p><strong>20% Tagapangalaga:</strong> <span id="tagapangalaga">0.00</span></p>
+            <p><strong>Total Current Sum (Cash + Pautang + Inventory):</strong> <span id="totalCurrentSum">0.00</span></p>
+            <p><strong>Difference (Current Sum - Capital Last Year):</strong> <span id="differenceAmount">0.00</span></p>
+            
+            <p><strong>40% Balik Puhunan:</strong> <span id="balikPuhunan">0.00</span></p>
+            <p><strong>30% Balik Tangkilik:</strong> <span id="balikTangkilik">0.00</span></p>
+            <p><strong>30% Tagapangalaga:</strong> <span id="tagapangalaga">0.00</span></p>
+            
+            <!-- NEW OUTPUT FIELD -->
+            <p><strong>Capital Sales Now:</strong> <span id="capitalSalesNow">0.00</span></p>
+            <!--------------------->
         </div>
     </div>
 
-    <!-- Ensure this script tag is here, right before the closing </body> tag -->
     <script src="script.js"></script>
 </body>
 </html>
