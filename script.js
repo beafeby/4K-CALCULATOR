@@ -3,23 +3,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const cashOnHandInput = document.getElementById('cashOnHand');
     const pautangAmountInput = document.getElementById('pautangAmount');
     const inventorySalesInput = document.getElementById('inventorySales');
-    const capitalSalesLastYearInput = document.getElementById('capitalSalesLastYear'); // NEW INPUT
+    const capitalSalesLastYearInput = document.getElementById('capitalSalesLastYear'); 
     const calculateBtn = document.getElementById('calculateBtn');
     
-    // Existing output spans (renamed totalCurrentSum for clarity)
-    const totalCurrentSumSpan = document.getElementById('totalCurrentSum');
-    const differenceAmountSpan = document.getElementById('differenceAmount'); // NEW OUTPUT
+    // Existing output spans (renamed totalCurrentSumDisplay for clarity and correct matching)
+    const totalCurrentSumDisplay = document.getElementById('totalCurrentSumDisplay'); // CHANGED ID
+    const differenceAmountSpan = document.getElementById('differenceAmount'); 
     
-    // New percentage output spans (renamed for clarity)
+    // New percentage output spans
     const balikPuhunanSpan = document.getElementById('balikPuhunan');
     const balikTangkilikSpan = document.getElementById('balikTangkilik');
     const tagapangalagaSpan = document.getElementById('tagapangalaga');
     
-    const capitalSalesNowSpan = document.getElementById('capitalSalesNow'); // NEW OUTPUT
+    const capitalSalesNowSpan = document.getElementById('capitalSalesNow'); 
 
     // Optional: Basic check if all elements are found (useful for debugging HTML ID issues)
     if (!cashOnHandInput || !pautangAmountInput || !inventorySalesInput || !capitalSalesLastYearInput ||
-        !calculateBtn || !totalCurrentSumSpan || !differenceAmountSpan || 
+        !calculateBtn || !totalCurrentSumDisplay || !differenceAmountSpan || // CHANGED ID
         !balikPuhunanSpan || !balikTangkilikSpan || !tagapangalagaSpan || !capitalSalesNowSpan) {
         console.error("One or more HTML elements were not found. Check your IDs in index.html and script.js!");
         // alert("There was an error loading the calculator. Please contact support.");
@@ -33,13 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const cashOnHand = parseFloat(cashOnHandInput.value) || 0;
         const pautangAmount = parseFloat(pautangAmountInput.value) || 0;
         const inventorySales = parseFloat(inventorySalesInput.value) || 0;
-        const capitalSalesLastYear = parseFloat(capitalSalesLastYearInput.value) || 0; // NEW INPUT VALUE
+        const capitalSalesLastYear = parseFloat(capitalSalesLastYearInput.value) || 0;
 
         console.log(`Inputs: Cash on Hand=${cashOnHand}, Pautang=${pautangAmount}, Sales=${inventorySales}, Capital Last Year=${capitalSalesLastYear}`);
 
         // 2. Calculate Total Current Sum
         const totalCurrentSum = cashOnHand + pautangAmount + inventorySales;
-        totalCurrentSumSpan.textContent = totalCurrentSum.toFixed(2); // Display this sum
+        totalCurrentSumDisplay.textContent = totalCurrentSum.toFixed(2); // Display this sum (CHANGED VARIABLE)
 
         // 3. Calculate the Difference
         const differenceAmount = totalCurrentSum - capitalSalesLastYear;
@@ -60,8 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Balik Puhunan: ${balikPuhunan.toFixed(2)}, Balik Tangkilik: ${balikTangkilik.toFixed(2)}, Tagapangalaga: ${tagapangalaga.toFixed(2)}`);
 
         // 6. Calculate and display "Capital Sales Now"
-        // This is 40% balik puhunan + Capital Sales Last Year
-        const capitalSalesNow = balikPuhunan + capitalSalesLastYear;
+        // ASSUMPTION: Capital Sales Now refers to the total current sum.
+        // If you intended a different calculation, please clarify.
+        const capitalSalesNow = totalCurrentSum; // SIMPLIFIED: Represents the current total assets/sales
         capitalSalesNowSpan.textContent = capitalSalesNow.toFixed(2);
 
         console.log(`Capital Sales Now: ${capitalSalesNow.toFixed(2)}`);
