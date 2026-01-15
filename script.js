@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         balikTangkilikSpan.textContent = balikTangkilik.toFixed(2);
         tagapangalagaSpan.textContent = tagapangalaga.toFixed(2);
 
-        const capitalSalesNow = capitalSalesLastYear + balikPuhunan ; 
+        const capitalSalesNow = capitalSalesLastYear + balikPuhunan; 
         capitalSalesNowSpan.textContent = capitalSalesNow.toFixed(2);
     });
 
